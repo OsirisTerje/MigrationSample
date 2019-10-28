@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MigrationSample.SomeFolder;
 using Newtonsoft.Json;
 
 namespace MigrationSample
@@ -20,6 +21,11 @@ namespace MigrationSample
         {
             string output = JsonConvert.SerializeObject(this);
             return output;
+        }
+
+        public Result AsResult()
+        {
+            return new Result(LastResult);
         }
     }
 }
