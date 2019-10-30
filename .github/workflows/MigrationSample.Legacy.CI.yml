@@ -1,6 +1,9 @@
 name: MigrationSample.Legacy.CI
 
-on: [push]
+on: 
+  push:
+    branches: 
+      - '*'
 
 jobs:
   build:
