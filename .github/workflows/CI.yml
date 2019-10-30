@@ -9,8 +9,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Download nuget.exe
-      run: curl https://dist.nuget.org/win-x86-commandline/latest/nuget.exe --output nuget.exe
+    - name: Setup Nuget.exe
+      uses: warrenbuckley/Setup-Nuget@v1
     - name: Restore packages
       run: nuget restore migrationsample.sln
     - name: Build with MSBuild
