@@ -1,4 +1,4 @@
-name: .NET Core
+name: MigrationSample.Legacy.CI
 
 on: [push]
 
@@ -9,9 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 2.2.108
-    - name: Build with dotnet
-      run: dotnet build --configuration Release
+    - name: Restore packages
+      run: nuget restore migrationsample.sln
+    - name: Build with MSBuild
+      run: msbuild  migrationsample.sln -p:Configuration=Release
